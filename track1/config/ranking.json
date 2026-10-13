@@ -1,0 +1,6 @@
+{
+  "version": "0.1-research-prototype",
+  "evidence_weights": {"rarity": 0.25, "effect": 0.40, "clinical": 0.35},
+  "phenotype_weight": 0.40,
+  "unknown_phase_multiplier": 0.75
+}

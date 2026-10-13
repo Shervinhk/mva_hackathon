@@ -1,0 +1,27 @@
+{
+  "model": "mva_panel_recessive_v1",
+  "assembly": "GRCh38",
+  "genes": ["BUB1B", "CEP57", "TRIP13", "CENATAC", "MAD1L1", "BUB1"],
+  "aliases": {"CCDC84": "CENATAC"},
+  "minimum_dp": 10,
+  "minimum_gq": 20,
+  "maximum_population_af": 0.01,
+  "phenotype_weight": 0.30,
+  "unknown_phase_factor": 0.75,
+  "rarity_weight": 0.20,
+  "effect_scores": {
+    "stop_gained": 0.95,
+    "frameshift_variant": 0.90,
+    "splice_donor_variant": 0.85,
+    "splice_acceptor_variant": 0.85,
+    "start_lost": 0.80,
+    "stop_lost": 0.75,
+    "inframe_indel": 0.55,
+    "missense_variant": 0.55,
+    "coding_complex": 0.35,
+    "splice_region_variant": 0.30,
+    "synonymous_variant": 0.05,
+    "UTR_variant": 0.05,
+    "intron_variant": 0.02
+  }
+}

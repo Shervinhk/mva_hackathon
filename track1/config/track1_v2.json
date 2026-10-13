@@ -1,0 +1,19 @@
+{
+  "model": "mva_disease_prioritizer_v2",
+  "assembly": "GRCh38",
+  "minimum_dp": 10,
+  "minimum_gq": 20,
+  "minimum_het_balance": 0.2,
+  "maximum_het_balance": 0.8,
+  "maximum_population_af_ar": 0.01,
+  "maximum_population_af_ad": 0.001,
+  "phenotype_weight": 0.35,
+  "mechanism_weight": 0.15,
+  "unknown_phase_factor": 0.8,
+  "maximum_eligible_alleles_per_gene": 80,
+  "mva_recessive_genes": ["BUB1B", "CEP57", "TRIP13", "CENATAC", "MAD1L1", "BUB1", "MAD2L1BP", "CEP192", "SLF2", "SMC5"],
+  "mechanism_review_genes": ["CDC20"],
+  "aliases": {"CCDC84": "CENATAC"},
+  "effect_scores": {"stop_gained": 0.80, "frameshift": 0.75, "splice_donor": 0.65, "splice_acceptor": 0.65, "start_lost": 0.60, "stop_lost": 0.50, "inframe_deletion": 0.40, "inframe_insertion": 0.40, "missense": 0.35, "splice_region": 0.20},
+  "provisional_epcr": {"unphased_pair": 0.60, "other": 0.60}
+}

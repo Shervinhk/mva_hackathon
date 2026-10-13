@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "assembly": "GRCh38",
+  "variants": [
+    {"id":"toy_A","gene":"DEMO_GENE_A","chrom":"chr1","pos":100,"ref":"A","alt":"G","genotype":"het","inheritance":"AR","qc":"pass","rarity":0.95,"effect":0.9,"clinical":0.8,"phenotype":0.95,"provenance":"Invented software example; no real allele evidence"},
+    {"id":"toy_B","gene":"DEMO_GENE_A","chrom":"chr1","pos":200,"ref":"C","alt":"T","genotype":"het","inheritance":"AR","qc":"pass","rarity":0.9,"effect":0.75,"clinical":null,"phenotype":0.95,"provenance":"Invented software example; clinical evidence missing"},
+    {"id":"toy_C","gene":"DEMO_GENE_B","chrom":"chr2","pos":300,"ref":"G","alt":"A","genotype":"het","inheritance":"AD","qc":"pass","rarity":0.98,"effect":0.98,"clinical":0.95,"phenotype":0.1,"provenance":"Invented example of high variant evidence but poor phenotype fit"},
+    {"id":"toy_D","gene":"DEMO_GENE_C","chrom":"chr3","pos":400,"ref":"T","alt":"C","genotype":"hom_alt","inheritance":"AR","qc":"pass","rarity":0.6,"effect":0.5,"clinical":0.2,"phenotype":0.4,"provenance":"Invented alternative recessive hypothesis"},
+    {"id":"toy_E","gene":"DEMO_GENE_D","chrom":"chr4","pos":500,"ref":"A","alt":"C","genotype":"het","inheritance":"AD","qc":"review","rarity":1,"effect":1,"clinical":1,"phenotype":1,"provenance":"Invented example withheld for QC review"}
+  ],
+  "pairs":[{"members":["toy_A","toy_B"],"phase":"unknown","phase_evidence":"No phasing evidence in this invented example"}]
+}

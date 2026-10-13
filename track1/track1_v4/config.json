@@ -1,0 +1,9 @@
+{
+  "model": "mva_track1_v4",
+  "base_model": "mva_disease_prioritizer_v3",
+  "phenotype_policy": "Conservative structured extraction; unknown observations excluded from positive query",
+  "score_policy": "Same numeric weights as V3; correct input interpretation and evidence compatibility",
+  "maximum_submission_hypotheses": 10,
+  "comparator_policy": "Reuse only when provenance and exact positive HPO payload match; otherwise rerun locally",
+  "training": "none"
+}
