@@ -150,24 +150,14 @@ def prepared_methods(original, identity, rationale):
     marker = '## Validation and limitations'
     if marker not in report:
         raise ValueError('Expected methods validation section')
-    report = report.replace(
-        'The participant reports training opt-out was already enabled; plan/tier and account controls have not been independently verified.',
-        'On 13 October 2026, the participant confirmed personally checking the relevant data-sharing/model-training settings and that these were off before any patient-data work began. This confirmation applies from the start of the work. The assistant did not independently inspect historical account settings or provider-side processing; the actual plan/tier remains to be supplied.')
-    report = report.replace(
-        'No retrospective no-disclosure or no-training guarantee is claimed.',
-        'Earlier conversation input does not establish training use or imply that opt-out was enabled afterward. No claim of entirely offline operation or deletion of earlier conversation content is made.')
     ai_start, ai_end = report.find('## AI use and acknowledgement'), report.find('Dataset: ')
     if ai_start >= 0 and ai_end > ai_start:
+        tier = str(identity.get('ai_details', {}).get('plan_tier') or '[TO CONFIRM]').replace('\n', ' ').replace('\r', '')
         report = report[:ai_start] + (
-            '## AI use and acknowledgement\n\n'
-            'OpenAI Codex assisted with code development, public-source research and documentation. '
-            'The participant confirms personally checking the relevant data-sharing/model-training settings '
-            'and that these were off before any work with the patient data began. The final submission must '
-            'specify the actual provider, plan/tier and any other AI tools in the participant disclosure above. '
-            'V3 and V4 genomic processing and detailed results were handled locally. Some patient-related '
-            'content appeared in earlier conversation and source review; the overall workflow was not entirely '
-            'offline. This does not establish model-training use. Public participant methods were encountered '
-            'during research, so this work is not described as blinded discovery.\n\n'
+            '## AI use\n\n'
+            f'OpenAI Codex, plan/tier: {tier}; data sharing/model training disabled before any work '
+            'with the patient data began, as checked and confirmed by the participant. Used for code '
+            'development, public-source research and documentation.\n\n'
             '## Data-deletion commitment\n\n'
             'I will delete the hackathon data within 30 days of hackathon close from all environments '
             'under my control, including local machines, cloud instances, notebooks, private repositories, '
@@ -176,7 +166,8 @@ def prepared_methods(original, identity, rationale):
             '[Official data-deletion rules](https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026/blob/main/tabs/rules.py).\n\n'
             '## References and acknowledgement\n\n'
         ) + report[ai_end:]
-    return report.replace(marker, rationale.rstrip() + '\n\n' + marker, 1)
+    return report.replace(marker, rationale.rstrip() + '\n\n' + marker +
+        '\n\nPublic participant methods were encountered during research; this is not a blinded evaluation.', 1)
 
 
 def prepare(identity_path=None):

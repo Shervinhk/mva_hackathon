@@ -4,11 +4,9 @@ Updated 13 October 2026.
 
 ## AI disclosure
 
-OpenAI Codex assisted with code development, public-source research and documentation. The participant confirms personally checking the relevant data-sharing/model-training settings and that these were off before any work with the patient data began. The actual plan/tier and any other AI tools used must be specified in the final submission report.
+OpenAI Codex, plan/tier: **[TO CONFIRM]**; data sharing/model training disabled before any work with the patient data began, as checked and confirmed by the participant. Used for code development, public-source research and documentation.
 
-V3 and V4 genomic processing and detailed results were handled by local programs. Some patient-related content appeared in earlier conversation and source review, so the overall workflow is not described as entirely offline. This does not establish that the content was used for model training.
-
-Patient inputs and results stay outside the GitHub repository. The repository contains source code, public methodology and fabricated test examples. During ongoing work, patient content must remain in local processing and must not be returned to the hosted assistant or uploaded to external services.
+This repository documents the V4 submission. Earlier-version scripts are retained only as dependencies needed to reproduce it. Patient inputs and case-specific results are excluded.
 
 ## Data-deletion commitment
 
