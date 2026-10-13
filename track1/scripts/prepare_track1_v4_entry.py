@@ -156,6 +156,26 @@ def prepared_methods(original, identity, rationale):
     report = report.replace(
         'No retrospective no-disclosure or no-training guarantee is claimed.',
         'Earlier conversation input does not establish training use or imply that opt-out was enabled afterward. No claim of entirely offline operation or deletion of earlier conversation content is made.')
+    ai_start, ai_end = report.find('## AI use and acknowledgement'), report.find('Dataset: ')
+    if ai_start >= 0 and ai_end > ai_start:
+        report = report[:ai_start] + (
+            '## AI use and acknowledgement\n\n'
+            'OpenAI Codex assisted with code development, public-source research and documentation. '
+            'The participant confirms personally checking the relevant data-sharing/model-training settings '
+            'and that these were off before any work with the patient data began. The final submission must '
+            'specify the actual provider, plan/tier and any other AI tools in the participant disclosure above. '
+            'V3 and V4 genomic processing and detailed results were handled locally. Some patient-related '
+            'content appeared in earlier conversation and source review; the overall workflow was not entirely '
+            'offline. This does not establish model-training use. Public participant methods were encountered '
+            'during research, so this work is not described as blinded discovery.\n\n'
+            '## Data-deletion commitment\n\n'
+            'I will delete the hackathon data within 30 days of hackathon close from all environments '
+            'under my control, including local machines, cloud instances, notebooks, private repositories, '
+            'and intermediate or derived datasets. Once deletion is complete, I will email '
+            'RarediseaserealkidMVAhackathon2026@synapse.org to confirm, as required by the organizers. '
+            '[Official data-deletion rules](https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026/blob/main/tabs/rules.py).\n\n'
+            '## References and acknowledgement\n\n'
+        ) + report[ai_end:]
     return report.replace(marker, rationale.rstrip() + '\n\n' + marker, 1)
 
 
