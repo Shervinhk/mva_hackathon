@@ -66,9 +66,7 @@ def entry_identity(supplied):
         identity['ai_disclosure'] = (
             f"Provider: {details['provider']}. Product: {details['product']}. "
             f"Plan/tier: {details['plan_tier']}. Data controls: {details['data_controls']} "
-            f"Other AI tools: {details['other_ai_tools']}. "
-            'Software and documentation assistance; no model was trained or fine-tuned by this pipeline. '
-            'See the report for the prior-disclosure history and limits of account verification.'
+            f"Other AI tools: {details['other_ai_tools']}."
         )
     identity, missing = validate_identity(identity)
     identity['ai_details'] = details
@@ -153,9 +151,10 @@ def prepared_methods(original, identity, rationale):
     ai_start, ai_end = report.find('## AI use and acknowledgement'), report.find('Dataset: ')
     if ai_start >= 0 and ai_end > ai_start:
         tier = str(identity.get('ai_details', {}).get('plan_tier') or '[TO CONFIRM]').replace('\n', ' ').replace('\r', '')
+        product = str(identity.get('ai_details', {}).get('product') or 'Codex').replace('\n', ' ').replace('\r', '')
         report = report[:ai_start] + (
             '## AI use\n\n'
-            f'OpenAI Codex, plan/tier: {tier}; data sharing/model training disabled before any work '
+            f'OpenAI {product}, plan/tier: {tier}; data sharing/model training disabled before any work '
             'with the patient data began, as checked and confirmed by the participant. Used for code '
             'development, public-source research and documentation.\n\n'
             '## Data-deletion commitment\n\n'

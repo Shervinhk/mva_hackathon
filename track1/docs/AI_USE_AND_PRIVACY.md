@@ -4,7 +4,7 @@ Updated 13 October 2026.
 
 ## AI disclosure
 
-OpenAI Codex, plan/tier: **[TO CONFIRM]**; data sharing/model training disabled before any work with the patient data began, as checked and confirmed by the participant. Used for code development, public-source research and documentation.
+OpenAI Codex (GPT-6 Astra), ChatGPT Plus plan; data sharing/model training disabled before any work with the patient data began, as checked and confirmed by the participant. Used for code development, public-source research and documentation.
 
 This repository documents the V4 submission. Earlier-version scripts are retained only as dependencies needed to reproduce it. Patient inputs and case-specific results are excluded.
 
