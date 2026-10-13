@@ -53,7 +53,7 @@ def entry_identity(supplied):
         raise ValueError('AI details must be an object')
     details = {key: details.get(key, default) for key, default in {
         'provider': 'OpenAI', 'product': 'Codex', 'plan_tier': '',
-        'data_controls': 'Participant reports training opt-out was enabled before this work; account controls were not independently inspected.',
+        'data_controls': 'On 13 October 2026, the participant confirmed personally checking the relevant data-sharing/model-training settings and that these were off before any patient-data work began. Historical account settings and provider-side processing were not independently inspected by the assistant.',
         'other_ai_tools': '',
     }.items()}
     if any(not isinstance(value, str) for value in details.values()):
@@ -150,6 +150,12 @@ def prepared_methods(original, identity, rationale):
     marker = '## Validation and limitations'
     if marker not in report:
         raise ValueError('Expected methods validation section')
+    report = report.replace(
+        'The participant reports training opt-out was already enabled; plan/tier and account controls have not been independently verified.',
+        'On 13 October 2026, the participant confirmed personally checking the relevant data-sharing/model-training settings and that these were off before any patient-data work began. This confirmation applies from the start of the work. The assistant did not independently inspect historical account settings or provider-side processing; the actual plan/tier remains to be supplied.')
+    report = report.replace(
+        'No retrospective no-disclosure or no-training guarantee is claimed.',
+        'Earlier conversation input does not establish training use or imply that opt-out was enabled afterward. No claim of entirely offline operation or deletion of earlier conversation content is made.')
     return report.replace(marker, rationale.rstrip() + '\n\n' + marker, 1)
 
 

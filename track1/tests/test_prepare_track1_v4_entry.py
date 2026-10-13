@@ -100,7 +100,9 @@ class IdentityTests(unittest.TestCase):
         self.assertFalse(missing)
         self.assertIn('Plan/tier: Synthetic test tier.', identity['ai_disclosure'])
         self.assertIn('Other AI tools: None.', identity['ai_disclosure'])
-        self.assertIn('account controls were not independently inspected', identity['ai_disclosure'])
+        self.assertIn('participant confirmed personally checking', identity['ai_disclosure'])
+        self.assertIn('off before any patient-data work began', identity['ai_disclosure'])
+        self.assertIn('not independently inspected by the assistant', identity['ai_disclosure'])
         self.assertEqual(identity['ai_details']['provider'], 'OpenAI')
 
     def test_unknown_or_placeholder_facts_are_not_complete(self):
